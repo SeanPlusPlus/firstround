@@ -28,7 +28,7 @@ function Navigation() {
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="/">Top Ten</Navbar.Brand>
+          <Navbar.Brand href="/">First Round</Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
               <Button onClick={handleShow} variant="secondary">

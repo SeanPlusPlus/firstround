@@ -6,7 +6,7 @@ import List from "./List"
 export default function Main() {
   return (
     <main>
-      <h1>First Round</h1>
+      <h1>2024 NFL Draft First Round</h1>
       <DndProvider backend={HTML5Backend}>
         <List />
       </DndProvider>
