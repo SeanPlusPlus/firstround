@@ -115,7 +115,7 @@ export const Container = () => {
   return (
     <>
       <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
-      {cards.length && (
+      {cards.length > 0 && (
         <div className="submit">
           <Button onClick={handleSubmit} variant="secondary" size="lg">
             Review and Submit
