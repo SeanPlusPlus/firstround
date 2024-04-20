@@ -1,8 +1,8 @@
-import _get from 'lodash/get'
+import _get from "lodash/get"
 
 const LoadingSpinner = (props) => {
-  const stroke = _get(props, 'stroke', '#000')
-  const height = _get(props, 'height', '50')
+  const stroke = _get(props, "stroke", "#000")
+  const height = _get(props, "height", "50")
 
   return (
     <div className="loading-spinner">

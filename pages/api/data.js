@@ -1,73 +1,73 @@
-import _shuffle from 'lodash/shuffle'
+import _shuffle from "lodash/shuffle"
 
 const countries = [
   {
     rank: 1,
-    text: "China"
+    text: "China",
   },
   {
     rank: 2,
-    text: "India"
+    text: "India",
   },
   {
     rank: 3,
-    text: "United States"
+    text: "United States",
   },
   {
     rank: 4,
-    text: "Indonesia"
+    text: "Indonesia",
   },
   {
     rank: 5,
-    text: "Pakistan"
+    text: "Pakistan",
   },
   {
     rank: 6,
-    text: "Brazil"
+    text: "Brazil",
   },
   {
     rank: 7,
-    text: "Nigeria"
+    text: "Nigeria",
   },
   {
     rank: 8,
-    text: "Bangladesh"
+    text: "Bangladesh",
   },
   {
     rank: 9,
-    text: "Russia"
+    text: "Russia",
   },
   {
     rank: 10,
-    text: "Mexico"
+    text: "Mexico",
   },
   {
     rank: 11,
-    text: "Japan"
+    text: "Japan",
   },
   {
     rank: 12,
-    text: "Ethiopia"
+    text: "Ethiopia",
   },
   {
     rank: 13,
-    text: "Philippines"
+    text: "Philippines",
   },
   {
     rank: 14,
-    text: "Egypt"
+    text: "Egypt",
   },
   {
     rank: 15,
-    text: "Vietnam"
-  }
+    text: "Vietnam",
+  },
 ]
 
-export default async function handler (req, res) {
+export default async function handler(req, res) {
   const data = _shuffle(countries).map((el, idx) => {
     return {
       ...el,
-      id: idx + 1
+      id: idx + 1,
     }
   })
   res.status(200).json(data)

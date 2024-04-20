@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { useState } from "react"
 
-import Container from 'react-bootstrap/Container'
-import Navbar from 'react-bootstrap/Navbar'
+import Container from "react-bootstrap/Container"
+import Navbar from "react-bootstrap/Navbar"
 
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
-import HowTo from './HowTo'
+import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
+import HowTo from "./HowTo"
 
-function Navigation () {
+function Navigation() {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -31,10 +31,7 @@ function Navigation () {
           <Navbar.Brand href="/">Top Ten</Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              <Button
-                onClick={handleShow}
-                variant='secondary'
-              >
+              <Button onClick={handleShow} variant="secondary">
                 How it works
               </Button>
             </Navbar.Text>

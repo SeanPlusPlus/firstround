@@ -1,16 +1,16 @@
-import { useCallback, useState, useEffect } from 'react'
-import update from 'immutability-helper'
-import axios from 'axios'
-import _orderBy from 'lodash/orderBy'
+import { useCallback, useState, useEffect } from "react"
+import update from "immutability-helper"
+import axios from "axios"
+import _orderBy from "lodash/orderBy"
 
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
+import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
 
-import { Card } from './Card'
+import { Card } from "./Card"
 
 const style = {
-  width: '100%',
-  maxWidth: '600px'
+  width: "100%",
+  maxWidth: "600px",
 }
 
 export const Container = () => {
@@ -18,12 +18,12 @@ export const Container = () => {
   const [score, setScore] = useState(null)
 
   const handleClose = () => setShow(false)
-  
+
   const [cards, setCards] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get('/api/data');
+      const response = await axios.get("/api/data")
       const data = response.data
       setCards(data)
     }
@@ -55,7 +55,7 @@ export const Container = () => {
   }, [])
 
   const handleSubmit = () => {
-    setCards(cards.map((c, i) => ({...c, order: i + 1})))
+    setCards(cards.map((c, i) => ({ ...c, order: i + 1 })))
 
     console.log(cards)
 
@@ -75,13 +75,25 @@ export const Container = () => {
   const Info = (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title>Score: <code>{score}</code></Modal.Title>
+        <Modal.Title>
+          Score: <code>{score}</code>
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <ul className="results">
-          {_orderBy(cards, ['rank']).map((card, i) => (
+          {_orderBy(cards, ["rank"]).map((card, i) => (
             <li key={i}>
-              {i+1}: <span className={(card.rank <= 10 && (card.order !== card.rank)) ? 'incorrect' : 'correct'}>{card.text}</span> {card.order < 10 && `[${card.order}]`}
+              {i + 1}:{" "}
+              <span
+                className={
+                  card.rank <= 10 && card.order !== card.rank
+                    ? "incorrect"
+                    : "correct"
+                }
+              >
+                {card.text}
+              </span>{" "}
+              {card.order < 10 && `[${card.order}]`}
             </li>
           ))}
         </ul>
@@ -96,15 +108,9 @@ export const Container = () => {
 
   return (
     <>
-      <div style={style}>
-        {cards.map((card, i) => renderCard(card, i))}
-      </div>
-      <div className='submit'>
-        <Button
-          onClick={handleSubmit}
-          variant="primary"
-          size="lg"
-        >
+      <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
+      <div className="submit">
+        <Button onClick={handleSubmit} variant="primary" size="lg">
           Submit
         </Button>
       </div>

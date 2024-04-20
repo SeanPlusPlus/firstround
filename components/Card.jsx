@@ -1,12 +1,12 @@
-import { useRef } from 'react'
-import { useDrag, useDrop } from 'react-dnd'
-import { ItemTypes } from './ItemTypes.js'
+import { useRef } from "react"
+import { useDrag, useDrop } from "react-dnd"
+import { ItemTypes } from "./ItemTypes.js"
 const style = {
-  border: '1px dashed gray',
-  padding: '0.5rem 1rem',
-  marginBottom: '.5rem',
-  backgroundColor: 'white',
-  cursor: 'move',
+  border: "1px dashed gray",
+  padding: "0.5rem 1rem",
+  marginBottom: ".5rem",
+  backgroundColor: "white",
+  cursor: "move",
 }
 export const Card = ({ id, text, index, moveCard }) => {
   const ref = useRef(null)
@@ -74,13 +74,11 @@ export const Card = ({ id, text, index, moveCard }) => {
   )
 }
 
-const getText= (index, text) => {
+const getText = (index, text) => {
   if (index < 10) {
-    return (
-      <strong>{text}</strong>
-    )
+    return <strong>{text}</strong>
   }
-  
+
   return text
 }
 
@@ -88,6 +86,6 @@ const getIndex = (index) => {
   if (index < 10) {
     return <strong>{index + 1}: </strong>
   }
-  
+
   return null
 }

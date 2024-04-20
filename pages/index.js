@@ -1,13 +1,13 @@
-import Head from 'next/head'
-import Navigation from './Navigation'
-import Main from './Main'
+import Head from "next/head"
+import Navigation from "./Navigation"
+import Main from "./Main"
 
-export default function Home () {
+export default function Home() {
   return (
     <div>
       <Head>
-        <title>Top Ten</title>
-        <meta name="description" content="Top Ten" />
+        <title>First Round</title>
+        <meta name="description" content="First Round" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
