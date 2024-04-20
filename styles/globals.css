@@ -1,0 +1,50 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: grid;
+  place-items: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -120;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -260;
+  }
+}
+
+.submit {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.results {
+  list-style-type: none;
+}
+
+.incorrect {
+  text-decoration: line-through;
+}
