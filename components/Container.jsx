@@ -75,7 +75,7 @@ export const Container = () => {
     setShow(true)
   }
 
-  const Info = (
+  const Review = (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
         <Modal.Title>Your picks</Modal.Title>
@@ -115,12 +115,14 @@ export const Container = () => {
   return (
     <>
       <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
-      <div className="submit">
-        <Button onClick={handleSubmit} variant="secondary" size="lg">
-          Review and Submit
-        </Button>
-      </div>
-      {Info}
+      {cards.length && (
+        <div className="submit">
+          <Button onClick={handleSubmit} variant="secondary" size="lg">
+            Review and Submit
+          </Button>
+        </div>
+      )}
+      {Review}
     </>
   )
 }
