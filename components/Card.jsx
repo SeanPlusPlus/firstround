@@ -8,7 +8,7 @@ const style = {
   backgroundColor: "white",
   cursor: "move",
 }
-export const Card = ({ id, text, index, moveCard }) => {
+export const Card = ({ id, name, college, position, index, moveCard }) => {
   const ref = useRef(null)
   const [{ handlerId }, drop] = useDrop({
     accept: ItemTypes.CARD,
@@ -69,23 +69,22 @@ export const Card = ({ id, text, index, moveCard }) => {
   drag(drop(ref))
   return (
     <div ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
-      {getIndex(index)} {getText(index, text)}
+      {getText(index, name, college, position)}
     </div>
   )
 }
 
-const getText = (index, text) => {
-  if (index < 10) {
-    return <strong>{text}</strong>
-  }
-
-  return text
-}
-
-const getIndex = (index) => {
-  if (index < 10) {
-    return <strong>{index + 1}: </strong>
-  }
-
-  return null
+const getText = (index, name, college, position) => {
+  const El = index < 32 ? "strong" : "span"
+  return (
+    <El>
+      <div className="grid-container">
+        <div>
+          {index + 1}: {name}
+        </div>
+        <div>{college}</div>
+        <div>{position}</div>
+      </div>
+    </El>
+  )
 }
