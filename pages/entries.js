@@ -22,16 +22,21 @@ export default function Entries() {
   const [showToast, setShowToast] = useState(true)
 
   useEffect(() => {
+    function getSelected() {
+      return draft.length
+    }
+
     const fetchEntries = async () => {
       const response = await axios.get("/api/entries")
       const data = response.data
       setItems(data.entries)
     }
-    const fetchDraft = async () => {
+    const fetchDraft = async (len) => {
       const response = await axios.get("/api/draft")
       const data = response.data
+      console.log(dayjs().format(), getSelected(), data.length)
 
-      if (draft.length !== data.length) {
+      if (getSelected() !== data.length) {
         setDraft(data)
         setShowToast(true)
         setUpdated(dayjs().format("h:mm:ss A"))
@@ -44,9 +49,9 @@ export default function Entries() {
     const interval = setInterval(() => {
       fetchEntries()
       fetchDraft()
-    }, 5000)
+    }, 3000)
     return () => clearInterval(interval)
-  }, [])
+  }, [draft])
 
   const toggleToast = () => setShowToast(false)
 
@@ -108,7 +113,7 @@ export default function Entries() {
       className="p-3"
       style={{ zIndex: 1 }}
     >
-      <Toast show={showToast} onClose={toggleToast}>
+      <Toast show={showToast && draft.length > 0} onClose={toggleToast}>
         <Toast.Header>
           <strong className="me-auto">Updated</strong>
           <small>{updated}</small>
