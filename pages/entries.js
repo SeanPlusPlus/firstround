@@ -98,6 +98,7 @@ export default function Entries() {
             <Table striped bordered hover>
               <thead>
                 <tr>
+                  <th>#</th>
                   <th>Name</th>
                   <th>Pending</th>
                   <th>Score</th>
@@ -106,6 +107,7 @@ export default function Entries() {
               <tbody>
                 {items.map((i, index) => (
                   <tr key={index} onClick={() => displayEntry(index)}>
+                    <td>{index + 1}</td>
                     <td>{i.name}</td>
                     <td>{i.pending}</td>
                     <td>
@@ -132,7 +134,7 @@ export default function Entries() {
               <tbody>
                 {draft.map((d, index) => (
                   <tr key={index}>
-                    <td>{index + 1}</td>
+                    <td>{d.selected}</td>
                     <td>{d.name}</td>
                     <td>{d.college}</td>
                     <td>{d.position}</td>
