@@ -82,6 +82,7 @@ export const Container = () => {
     }
     const response = await axios.post(url, { idxs, name }, config)
     console.log(response.data)
+    window.location.href = "/entries"
   }
 
   const Review = (
