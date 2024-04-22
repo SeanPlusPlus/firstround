@@ -5,7 +5,7 @@ const LoadingSpinner = (props) => {
   const height = _get(props, "height", "50")
 
   return (
-    <div className="loading-spinner">
+    <div className="loading-spinner" style={{ marginTop: 50 }}>
       <svg
         className="spinner"
         xmlns="http://www.w3.org/2000/svg"

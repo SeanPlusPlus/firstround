@@ -10,6 +10,7 @@ import Table from "react-bootstrap/Table"
 import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
 import dayjs from "dayjs"
+import LoadingSpinner from "./LoadingSpinner"
 
 const TOTAL = 32
 
@@ -140,58 +141,64 @@ export default function Entries() {
 
       <Navigation />
       <Container>
-        <div className="grid-main">
-          <div>
-            <h2>Entries</h2>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  {draft.length < TOTAL && <th>Pending</th>}
-                  <th>Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((i, index) => (
-                  <tr key={index} onClick={() => displayEntry(index)}>
-                    <td>{index + 1}</td>
-                    <td>{i.name}</td>
-                    {draft.length < TOTAL && <td>{i.pending}</td>}
-                    <td>
-                      <strong>
-                        <code>{i.score}</code>
-                      </strong>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-          <div>
-            <h2>Draft 2024</h2>
-            <Table striped bordered>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>College</th>
-                  <th>Posoition</th>
-                </tr>
-              </thead>
-              <tbody>
-                {draft.map((d, index) => (
-                  <tr key={index}>
-                    <td>{d.selected}</td>
-                    <td>{d.data.name}</td>
-                    <td>{d.data.college}</td>
-                    <td>{d.data.position}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-        </div>
+        {items.length > 0 ? (
+          <>
+            <div className="grid-main">
+              <div>
+                <h2>Entries</h2>
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      {draft.length < TOTAL && <th>Pending</th>}
+                      <th>Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {items.map((i, index) => (
+                      <tr key={index} onClick={() => displayEntry(index)}>
+                        <td>{index + 1}</td>
+                        <td>{i.name}</td>
+                        {draft.length < TOTAL && <td>{i.pending}</td>}
+                        <td>
+                          <strong>
+                            <code>{i.score}</code>
+                          </strong>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
+              <div>
+                <h2>Draft 2024</h2>
+                <Table striped bordered>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>College</th>
+                      <th>Posoition</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {draft.map((d, index) => (
+                      <tr key={index}>
+                        <td>{d.selected}</td>
+                        <td>{d.data.name}</td>
+                        <td>{d.data.college}</td>
+                        <td>{d.data.position}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
+            </div>
+          </>
+        ) : (
+          <LoadingSpinner />
+        )}
         {Alert}
       </Container>
       {Info}
