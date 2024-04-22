@@ -1,19 +1,101 @@
 const { sql } = require("@vercel/postgres")
+
 require("dotenv").config({ path: ".env.development.local" })
 
 function main() {
-  const contacts = [
+  const entries = [
     {
       name: "Hello World",
-      picks: [{ name: "cycling" }, { name: "poker" }],
+      picks: [
+        { rank: 2, name: "Jayden Daniels", college: "LSU", position: "QB" },
+        { rank: 7, name: "Brock Bowers", college: "Georgia", position: "TE" },
+        { rank: 1, name: "Caleb Williams", college: "USC", position: "QB" },
+        {
+          rank: 3,
+          name: "Marvin Harrison Jr.",
+          college: "Ohio State",
+          position: "WR",
+        },
+        { rank: 4, name: "Malik Nabers", college: "LSU", position: "WR" },
+        {
+          rank: 5,
+          name: "Drake Maye",
+          college: "North Carolina",
+          position: "QB",
+        },
+        { rank: 6, name: "Rome Odunze", college: "Washington", position: "WR" },
+      ],
     },
     {
       name: "Foo Bar",
-      picks: [{ name: "hacking" }, { name: "yoga" }],
+      picks: [
+        { rank: 1, name: "Caleb Williams", college: "USC", position: "QB" },
+        { rank: 2, name: "Jayden Daniels", college: "LSU", position: "QB" },
+        {
+          rank: 3,
+          name: "Marvin Harrison Jr.",
+          college: "Ohio State",
+          position: "WR",
+        },
+        { rank: 4, name: "Malik Nabers", college: "LSU", position: "WR" },
+        {
+          rank: 5,
+          name: "Drake Maye",
+          college: "North Carolina",
+          position: "QB",
+        },
+        { rank: 6, name: "Rome Odunze", college: "Washington", position: "WR" },
+        { rank: 7, name: "Brock Bowers", college: "Georgia", position: "TE" },
+      ],
     },
     {
       name: "Dude Stoked",
-      picks: [{ name: "running" }, { name: "history" }],
+      picks: [
+        { rank: 1, name: "Caleb Williams", college: "USC", position: "QB" },
+        { rank: 2, name: "Jayden Daniels", college: "LSU", position: "QB" },
+        {
+          rank: 5,
+          name: "Drake Maye",
+          college: "North Carolina",
+          position: "QB",
+        },
+        { rank: 4, name: "Malik Nabers", college: "LSU", position: "WR" },
+        {
+          rank: 3,
+          name: "Marvin Harrison Jr.",
+          college: "Ohio State",
+          position: "WR",
+        },
+        { rank: 6, name: "Rome Odunze", college: "Washington", position: "WR" },
+        { rank: 7, name: "Brock Bowers", college: "Georgia", position: "TE" },
+      ],
+    },
+    {
+      name: "Mega Tron",
+      picks: [
+        { rank: 1, name: "Caleb Williams", college: "USC", position: "QB" },
+        { rank: 2, name: "Jayden Daniels", college: "LSU", position: "QB" },
+        {
+          rank: 17,
+          name: "J.J. McCarthy",
+          college: "Michigan",
+          position: "QB",
+        },
+        { rank: 4, name: "Malik Nabers", college: "LSU", position: "WR" },
+        {
+          rank: 3,
+          name: "Marvin Harrison Jr.",
+          college: "Ohio State",
+          position: "WR",
+        },
+        { rank: 6, name: "Rome Odunze", college: "Washington", position: "WR" },
+        {
+          rank: 8,
+          name: "Dallas Turner",
+          college: "Alabama",
+          position: "EDGE",
+        },
+      ],
     },
   ]
 
@@ -28,7 +110,7 @@ function main() {
   }
 
   const insertObjects = async () => {
-    const promises = contacts.map((contact) => insert(contact))
+    const promises = entries.map((entry) => insert(entry))
     const result = await Promise.all(promises)
     console.log(result)
   }

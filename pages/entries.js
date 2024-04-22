@@ -56,17 +56,17 @@ export default function Entries() {
             </tr>
           </thead>
           <tbody>
-            {entry.picks &&
-              entry.picks.map((p, index) => (
+            {entry.scores &&
+              entry.scores.map((entry, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{p.name}</td>
-                  <td>{p.college}</td>
-                  <td>{p.position}</td>
-                  <td></td>
+                  <td>{entry.name}</td>
+                  <td>{entry.college}</td>
+                  <td>{entry.position}</td>
+                  <td>{entry.drafted}</td>
                   <td>
                     <strong>
-                      <code>{p.score || 4}</code>
+                      <code>{entry.score}</code>
                     </strong>
                   </td>
                 </tr>
@@ -106,7 +106,11 @@ export default function Entries() {
                 {items.map((i, index) => (
                   <tr key={index} onClick={() => displayEntry(index)}>
                     <td>{i.name}</td>
-                    <td>{i.score}</td>
+                    <td>
+                      <strong>
+                        <code>{i.score}</code>
+                      </strong>
+                    </td>
                   </tr>
                 ))}
               </tbody>
