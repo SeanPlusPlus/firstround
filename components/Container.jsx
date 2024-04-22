@@ -18,6 +18,7 @@ const style = {
 export const Container = () => {
   const [show, setShow] = useState(false)
   const [name, setName] = useState(null)
+  const [submitting, setSubmitting] = useState(null)
 
   const handleClose = () => setShow(false)
 
@@ -71,7 +72,7 @@ export const Container = () => {
   const handleSubmit = async () => {
     const idxs = cards.map((c) => ({ idx: c.rank - 1 }))
 
-    setShow(false)
+    setSubmitting(true)
 
     // POST idxs
     const url = "/api/entry"
@@ -116,13 +117,21 @@ export const Container = () => {
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label className="name-label">* Name</Form.Label>
-            <Form.Control type="text" onChange={handleName} />
+            <Form.Control
+              type="text"
+              onChange={handleName}
+              autoComplete="off"
+            />
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleSubmit} disabled={!name}>
-          Submit
+        <Button
+          variant="primary"
+          onClick={handleSubmit}
+          disabled={!name || submitting}
+        >
+          Submitting {submitting && "..."}
         </Button>
       </Modal.Footer>
     </Modal>
