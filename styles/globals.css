@@ -60,3 +60,10 @@ main {
   color: red;
   font-weight: bold;
 }
+
+.grid-main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  width: 100%;
+}

@@ -2,9 +2,10 @@ import { useState } from "react"
 
 import Container from "react-bootstrap/Container"
 import Navbar from "react-bootstrap/Navbar"
-
+import Nav from "react-bootstrap/Nav"
 import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
+
 import HowTo from "./HowTo"
 
 function Navigation() {
@@ -29,6 +30,10 @@ function Navigation() {
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="/">First Round</Navbar.Brand>
+          <Nav>
+            <Nav.Link href="/entries">Entries</Nav.Link>
+          </Nav>
+
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
               <Button onClick={handleShow} variant="secondary">

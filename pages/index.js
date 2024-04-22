@@ -4,7 +4,7 @@ import Main from "./Main"
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>First Round</title>
         <meta name="description" content="First Round" />
@@ -13,6 +13,6 @@ export default function Home() {
 
       <Navigation />
       <Main />
-    </div>
+    </>
   )
 }
