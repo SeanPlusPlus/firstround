@@ -83,11 +83,24 @@ main {
   gap: 5px;
 }
 
+.college-header,
+.college,
+.position-header,
+.position {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .grid-main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     width: 100%;
+  }
+  .college-header,
+  .college,
+  .position-header,
+  .position {
+    display: table-cell;
   }
 }

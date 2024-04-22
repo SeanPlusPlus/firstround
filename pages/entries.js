@@ -75,8 +75,8 @@ export default function Entries() {
             <tr>
               <th>#</th>
               <th>Name</th>
-              <th>College</th>
-              <th>Position</th>
+              <th className="college-header">College</th>
+              <th className="position-header">Position</th>
               <th>Drafted</th>
               <th>Score</th>
             </tr>
@@ -87,8 +87,8 @@ export default function Entries() {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{entry.name}</td>
-                  <td>{entry.college}</td>
-                  <td>{entry.position}</td>
+                  <td className="college">{entry.college}</td>
+                  <td className="position">{entry.position}</td>
                   <td>{entry.drafted}</td>
                   <td>
                     <strong>
