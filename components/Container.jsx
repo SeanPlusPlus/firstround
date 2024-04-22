@@ -16,7 +16,6 @@ const style = {
 
 export const Container = () => {
   const [show, setShow] = useState(false)
-  const [score, setScore] = useState(null)
 
   const handleClose = () => setShow(false)
 
@@ -57,22 +56,25 @@ export const Container = () => {
     )
   }, [])
 
-  const handleSubmit = () => {
+  const handleReview = () => {
     setCards(cards.map((c, i) => ({ ...c, order: i + 1 })))
-
-    console.log(cards)
-
-    let score = 0
-    cards.forEach((card, idx) => {
-      const prediction = idx + 1
-      if (prediction === card.rank && card.rank <= 10) {
-        score += prediction
-      }
-
-      setScore(score)
-    })
-
     setShow(true)
+  }
+
+  const handleSubmit = async () => {
+    const idxs = cards.map((c) => ({ idx: c.rank - 1 }))
+
+    setShow(false)
+
+    // POST idxs
+    const url = "/api/entry"
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+    const response = await axios.post(url, idxs, config)
+    console.log(response.data)
   }
 
   const Review = (
@@ -105,7 +107,7 @@ export const Container = () => {
         </Table>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary" onClick={handleSubmit}>
           Submit
         </Button>
       </Modal.Footer>
@@ -117,7 +119,7 @@ export const Container = () => {
       <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
       {cards.length > 0 && (
         <div className="submit">
-          <Button onClick={handleSubmit} variant="secondary" size="lg">
+          <Button onClick={handleReview} variant="secondary" size="lg">
             Review and Submit
           </Button>
         </div>

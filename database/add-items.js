@@ -6,20 +6,23 @@ function main() {
     {
       name: "Hello",
       city: "World",
+      hobbies: [{ name: "cycling" }, { name: "poker" }],
     },
     {
       name: "Foo",
       city: "Bar",
+      hobbies: [{ name: "hacking" }, { name: "yoga" }],
     },
     {
       name: "Dude",
       city: "Stoked",
+      hobbies: [{ name: "running" }, { name: "history" }],
     },
   ]
 
   const insert = async (obj) => {
     const result =
-      await sql`INSERT INTO Contacts (Name, City) VALUES (${obj.name}, ${obj.city});`
+      await sql`INSERT INTO Contacts (Name, City, Hobbies) VALUES (${obj.name}, ${obj.city}, ${JSON.stringify(obj.hobbies)});`
     return result
   }
 
