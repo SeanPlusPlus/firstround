@@ -61,6 +61,12 @@ main {
   font-weight: bold;
 }
 
+.grid-pick {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 5px;
+}
+
 @media screen and (min-width: 768px) {
   .grid-main {
     display: grid;

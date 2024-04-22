@@ -1,14 +1,13 @@
 import _orderBy from "lodash/orderBy"
-import players2024 from "./players"
 import { sql } from "@vercel/postgres"
 
-const CURRENT_ROUND = 5
-const TOTAL = 7
+const TOTAL = 32
 const PENALTY = 1024
 
 export default async function handler(req, res) {
   try {
-    const draft = players2024.slice(0, CURRENT_ROUND)
+    const query = await sql`SELECT * FROM Picks;`
+    const draft = query.rows.map((row) => row.data)
     const entries = await sql`SELECT * FROM Entries;`
     const results = entries.rows.map((r) => {
       const scores = r.picks.map((p, idx) => {

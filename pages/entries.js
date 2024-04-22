@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react"
 import Head from "next/head"
-import Navigation from "./Navigation"
 import axios from "axios"
+import Navigation from "./Navigation"
 
+import ToastContainer from "react-bootstrap/ToastContainer"
+import Toast from "react-bootstrap/Toast"
 import Container from "react-bootstrap/Container"
 import Table from "react-bootstrap/Table"
 import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
+import dayjs from "dayjs"
 
 const TOTAL = 32
 
@@ -15,6 +18,8 @@ export default function Entries() {
   const [draft, setDraft] = useState([])
   const [show, setShow] = useState(false)
   const [entry, setEntry] = useState({})
+  const [updated, setUpdated] = useState(null)
+  const [showToast, setShowToast] = useState(true)
 
   useEffect(() => {
     const fetchEntries = async () => {
@@ -25,12 +30,25 @@ export default function Entries() {
     const fetchDraft = async () => {
       const response = await axios.get("/api/draft")
       const data = response.data
-      setDraft(data)
+
+      if (draft.length !== data.length) {
+        setDraft(data)
+        setShowToast(true)
+        setUpdated(dayjs().format("h:mm:ss A"))
+      }
     }
 
     fetchEntries()
     fetchDraft()
+
+    const interval = setInterval(() => {
+      fetchEntries()
+      fetchDraft()
+    }, 5000)
+    return () => clearInterval(interval)
   }, [])
+
+  const toggleToast = () => setShowToast(false)
 
   const displayEntry = (idx) => {
     console.log(idx, items[idx])
@@ -82,6 +100,29 @@ export default function Entries() {
         </Button>
       </Modal.Footer>
     </Modal>
+  )
+
+  const Alert = (
+    <ToastContainer
+      position={"bottom-end"}
+      className="p-3"
+      style={{ zIndex: 1 }}
+    >
+      <Toast show={showToast} onClose={toggleToast}>
+        <Toast.Header>
+          <strong className="me-auto">Updated</strong>
+          <small>{updated}</small>
+        </Toast.Header>
+        <Toast.Body>
+          <div className="grid-pick">
+            <div># {draft.length > 0 && draft[0].selected}</div>
+            <div>{draft.length > 0 && draft[0].data.name}</div>
+            <div>{draft.length > 0 && draft[0].data.college}</div>
+            <div>{draft.length > 0 && draft[0].data.position}</div>
+          </div>
+        </Toast.Body>
+      </Toast>
+    </ToastContainer>
   )
 
   return (
@@ -146,6 +187,7 @@ export default function Entries() {
             </Table>
           </div>
         </div>
+        {Alert}
       </Container>
       {Info}
     </>
