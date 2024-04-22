@@ -1,17 +1,35 @@
 const { sql } = require("@vercel/postgres")
 require("dotenv").config({ path: ".env.development.local" })
 
-async function main() {
-  const name = "Dude"
-  const city = "Stoked"
-  try {
-    const result =
-      await sql`INSERT INTO Contacts (Name, City) VALUES (${name}, ${city});`
+function main() {
+  const contacts = [
+    {
+      name: "Hello",
+      city: "World",
+    },
+    {
+      name: "Foo",
+      city: "Bar",
+    },
+    {
+      name: "Dude",
+      city: "Stoked",
+    },
+  ]
 
-    console.log(result)
-  } catch (err) {
-    console.log(err)
+  const insert = async (obj) => {
+    const result =
+      await sql`INSERT INTO Contacts (Name, City) VALUES (${obj.name}, ${obj.city});`
+    return result
   }
+
+  const insertObjects = async () => {
+    const promises = contacts.map((contact) => insert(contact))
+    const result = await Promise.all(promises)
+    console.log(result)
+  }
+
+  insertObjects()
 }
 
 main()
