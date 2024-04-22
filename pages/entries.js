@@ -8,6 +8,8 @@ import Table from "react-bootstrap/Table"
 import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
 
+const TOTAL = 32
+
 export default function Entries() {
   const [items, setItems] = useState([])
   const [draft, setDraft] = useState([])
@@ -100,7 +102,7 @@ export default function Entries() {
                 <tr>
                   <th>#</th>
                   <th>Name</th>
-                  <th>Pending</th>
+                  {draft.length < TOTAL && <th>Pending</th>}
                   <th>Score</th>
                 </tr>
               </thead>
@@ -109,7 +111,7 @@ export default function Entries() {
                   <tr key={index} onClick={() => displayEntry(index)}>
                     <td>{index + 1}</td>
                     <td>{i.name}</td>
-                    <td>{i.pending}</td>
+                    {draft.length < TOTAL && <td>{i.pending}</td>}
                     <td>
                       <strong>
                         <code>{i.score}</code>
@@ -135,9 +137,9 @@ export default function Entries() {
                 {draft.map((d, index) => (
                   <tr key={index}>
                     <td>{d.selected}</td>
-                    <td>{d.name}</td>
-                    <td>{d.college}</td>
-                    <td>{d.position}</td>
+                    <td>{d.data.name}</td>
+                    <td>{d.data.college}</td>
+                    <td>{d.data.position}</td>
                   </tr>
                 ))}
               </tbody>

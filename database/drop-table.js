@@ -2,8 +2,11 @@ const { sql } = require("@vercel/postgres")
 require("dotenv").config({ path: ".env.development.local" })
 
 async function main() {
-  const result = await sql`DROP TABLE Entries;`
-  console.log(result)
+  const entries = await sql`DROP TABLE Entries;`
+  console.log(entries)
+
+  const picks = await sql`DROP TABLE Picks;`
+  console.log(picks)
 }
 
 main()
