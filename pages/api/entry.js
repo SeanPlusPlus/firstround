@@ -5,8 +5,7 @@ const YEAR = "2024"
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    // Process a POST request
-    const data = req.body // Assuming the content-type is application/json
+    const data = req.body
     const { idxs, name } = data
 
     const entry = []
@@ -14,6 +13,12 @@ export default async function handler(req, res) {
       const idx = idxs[i].idx
       const player = players2024[idx]
       entry.push(player)
+    }
+
+    const valid = entry.every((obj) => typeof obj.name === "string")
+    if (!valid) {
+      res.status(405).end("Something off with the data")
+      return
     }
 
     const obj = {
