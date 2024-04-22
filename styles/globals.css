@@ -55,3 +55,8 @@ main {
   gap: 10px;
   width: 100%;
 }
+
+.name-label {
+  color: red;
+  font-weight: bold;
+}

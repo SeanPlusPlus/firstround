@@ -5,6 +5,7 @@ import _orderBy from "lodash/orderBy"
 
 import Table from "react-bootstrap/Table"
 import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form"
 import Modal from "react-bootstrap/Modal"
 
 import { Card } from "./Card"
@@ -16,6 +17,7 @@ const style = {
 
 export const Container = () => {
   const [show, setShow] = useState(false)
+  const [name, setName] = useState(null)
 
   const handleClose = () => setShow(false)
 
@@ -56,6 +58,11 @@ export const Container = () => {
     )
   }, [])
 
+  const handleName = (e) => {
+    const val = e.target.value
+    setName(val)
+  }
+
   const handleReview = () => {
     setCards(cards.map((c, i) => ({ ...c, order: i + 1 })))
     setShow(true)
@@ -73,7 +80,7 @@ export const Container = () => {
         "Content-Type": "application/json",
       },
     }
-    const response = await axios.post(url, idxs, config)
+    const response = await axios.post(url, { idxs, name }, config)
     console.log(response.data)
   }
 
@@ -105,9 +112,15 @@ export const Container = () => {
               ))}
           </tbody>
         </Table>
+        <Form>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label className="name-label">* Name</Form.Label>
+            <Form.Control type="text" onChange={handleName} />
+          </Form.Group>
+        </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleSubmit}>
+        <Button variant="primary" onClick={handleSubmit} disabled={!name}>
           Submit
         </Button>
       </Modal.Footer>
@@ -119,7 +132,7 @@ export const Container = () => {
       <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
       {cards.length > 0 && (
         <div className="submit">
-          <Button onClick={handleReview} variant="secondary" size="lg">
+          <Button onClick={handleReview} variant="primary" size="lg">
             Review and Submit
           </Button>
         </div>
