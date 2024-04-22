@@ -1,8 +1,10 @@
-import { put } from "@vercel/blob"
+import { sql } from "@vercel/postgres"
 
 export default async function handler(req, res) {
-  const { url } = await put("articles/blob.txt", "Hello World! 1", {
-    access: "public",
-  })
-  res.status(200).json({ url })
+  try {
+    const contacts = await sql`SELECT * FROM Contacts;`
+    res.status(200).json({ contacts: contacts.rows })
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" })
+  }
 }
