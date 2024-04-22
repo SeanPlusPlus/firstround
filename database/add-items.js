@@ -97,6 +97,38 @@ function main() {
         },
       ],
     },
+    {
+      name: "Julius Cesar",
+      picks: [
+        {
+          rank: 5,
+          name: "Drake Maye",
+          college: "North Carolina",
+          position: "QB",
+        },
+        { rank: 20, name: "Brian Thomas Jr.", college: "LSU", position: "WR" },
+        { rank: 21, name: "Adonai Mitchell", college: "Texas", position: "WR" },
+        {
+          rank: 22,
+          name: "Jared Verse",
+          college: "Florida State",
+          position: "EDGE",
+        },
+        {
+          rank: 3,
+          name: "Marvin Harrison Jr.",
+          college: "Ohio State",
+          position: "WR",
+        },
+        { rank: 28, name: "Graham Barton", college: "Duke", position: "C" },
+        {
+          rank: 29,
+          name: "Darius Robinson",
+          college: "Missouri",
+          position: "EDGE",
+        },
+      ],
+    },
   ]
 
   const insert = async (obj) => {

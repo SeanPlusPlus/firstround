@@ -27,9 +27,12 @@ export default async function handler(req, res) {
         return acc + (typeof cur.score === "number" ? cur.score : 0)
       }, 0)
 
+      const pending = scores.filter((s) => s.score === null).length
+
       return {
         ...r,
         scores,
+        pending,
         score,
       }
     })
@@ -42,7 +45,6 @@ export default async function handler(req, res) {
 }
 
 const getScore = (i, idx, totalPicksCompleted) => {
-  console.log(totalPicksCompleted)
   if (totalPicksCompleted === TOTAL) {
     // draft is complete and this player was not picked in the 1st round
     if (i === -1) {

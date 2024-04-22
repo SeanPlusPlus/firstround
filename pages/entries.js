@@ -99,6 +99,7 @@ export default function Entries() {
               <thead>
                 <tr>
                   <th>Name</th>
+                  <th>Pending</th>
                   <th>Score</th>
                 </tr>
               </thead>
@@ -106,6 +107,7 @@ export default function Entries() {
                 {items.map((i, index) => (
                   <tr key={index} onClick={() => displayEntry(index)}>
                     <td>{i.name}</td>
+                    <td>{i.pending}</td>
                     <td>
                       <strong>
                         <code>{i.score}</code>
