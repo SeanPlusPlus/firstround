@@ -4,26 +4,30 @@ require("dotenv").config({ path: ".env.development.local" })
 function main() {
   const contacts = [
     {
-      name: "Hello",
-      city: "World",
+      name: "Hello World",
+      city: "Los Angeles",
       hobbies: [{ name: "cycling" }, { name: "poker" }],
     },
     {
-      name: "Foo",
-      city: "Bar",
+      name: "Foo Bar",
+      city: "New York",
       hobbies: [{ name: "hacking" }, { name: "yoga" }],
     },
     {
-      name: "Dude",
-      city: "Stoked",
+      name: "Dude Stoked",
+      city: "San Francisco",
       hobbies: [{ name: "running" }, { name: "history" }],
     },
   ]
 
   const insert = async (obj) => {
-    const result =
-      await sql`INSERT INTO Contacts (Name, City, Hobbies) VALUES (${obj.name}, ${obj.city}, ${JSON.stringify(obj.hobbies)});`
-    return result
+    try {
+      const result =
+        await sql`INSERT INTO Contacts (Name, City, Hobbies) VALUES (${obj.name}, ${obj.city}, ${JSON.stringify(obj.hobbies)});`
+      return result
+    } catch (e) {
+      return e
+    }
   }
 
   const insertObjects = async () => {
