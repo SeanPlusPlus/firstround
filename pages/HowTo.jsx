@@ -80,28 +80,50 @@ function HowTo() {
           </strong>
         </p>
         <p>
-          If you predict that a player will be drafted in the first round and
-          they are not drafted in the first round, you will be scored for that
-          player as if they were drafted{" "}
+          If you predict that a particular athlete will be drafted in the first
+          round, and they are not drafted in the first round, you will be scored
+          for that athlete as if they were drafted{" "}
           <strong>
-            <code>50th</code>
+            <code>64th</code>
           </strong>{" "}
-          overall.
+          overall -- the last pick in the second round.
         </p>
         <p>
-          As such, there are two columns to keep an eye on during the draft: the{" "}
-          <code>score</code> column shows what the current score is, however the{" "}
-          <code>pending</code> column shows the number of players that have not
-          yet been drafted on this entries&apos; list.
+          Thus, there are two columns on the main scoreboard to keep an eye on
+          during the draft: the <code>score</code> column shows what the current
+          score is for an entry, and the <code>pending</code> column shows the
+          number of players that have not yet been drafted on that particular
+          entries&apos; list.
         </p>
         <p>
-          Up until the very last pick, an entry may be leading with the lowest
-          score, however at the conclusion of the first round, each athlete that
-          was not accounted for will add{" "}
+          Up until the very last pick of the first round, an entry may be
+          leading with the lowest score, however at the conclusion of the first
+          round of the draft, each athlete that was not accounted for will then
+          need to be given their penalized score.
+        </p>
+        <p>
+          For example: let&apos;s say you predicted that <strong>Bo Nix</strong>{" "}
+          would be selected tenth overall in the draft. But, at the end of the
+          first round he was not drafted at all! During the draft, he would be{" "}
+          <i>pending</i> and there would be no positive score next to his name,
+          but at the end of the draft, he would be scored{" "}
           <strong>
-            <code>1024</code>
-          </strong>{" "}
-          points!!
+            <code>2916</code>
+          </strong>
+          .
+        </p>
+        <p>
+          <strong>
+            <code>(64 - 10) ^ 2 = 2916</code>
+          </strong>
+        </p>
+        <p>
+          As such, you are very much incentivized to draft players you think
+          will go in the first round.
+        </p>
+        <p>
+          But, let&apos;s not forget -- fortune favors the brave. There is only
+          one winner at the end!!
         </p>
       </Modal.Body>
     </>
