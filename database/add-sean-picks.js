@@ -5,7 +5,7 @@ require("dotenv").config({ path: ".env.development.local" })
 function main() {
   const entries = [
     {
-      name: "Sean",
+      name: "Sean S",
       picks: [
         { rank: 1, name: "Caleb Williams", college: "USC", position: "QB" },
         { rank: 2, name: "Jayden Daniels", college: "LSU", position: "QB" },
