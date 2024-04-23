@@ -2,7 +2,7 @@ import _orderBy from "lodash/orderBy"
 import { sql } from "@vercel/postgres"
 
 const TOTAL = 32
-const PENALTY = 50
+const PENALTY = 64
 
 export default async function handler(req, res) {
   try {
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         const drafted = draft.find((d) => d.data.name === p.name)
         const predicted = idx + 1
         const selected = drafted ? drafted.selected : null
-        const score = selected ? getScore(selected, predicted) : null
+        const score = getScore(selected, predicted, TOTAL, draft.length)
         return {
           ...p,
           score,
@@ -49,8 +49,14 @@ export default async function handler(req, res) {
   }
 }
 
-const getScore = (selected, predicted) => {
-  const abs = Math.abs(selected - predicted)
-  const score = Math.pow(abs, 2)
-  return score
+const getScore = (selected, predicted, total, drafted) => {
+  if (!selected) {
+    if (total === drafted) {
+      // First round complete
+      return Math.pow(Math.abs(PENALTY - predicted), 2)
+    }
+    return null
+  }
+
+  return Math.pow(Math.abs(selected - predicted), 2)
 }
