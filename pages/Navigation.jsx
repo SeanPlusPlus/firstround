@@ -39,8 +39,8 @@ function Navigation(props) {
 
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              <Button onClick={handleShow} variant="secondary">
-                How it works
+              <Button onClick={handleShow} variant="info">
+                How to Play
               </Button>
             </Navbar.Text>
           </Navbar.Collapse>

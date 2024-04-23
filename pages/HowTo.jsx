@@ -5,7 +5,7 @@ function HowTo() {
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title>How to play</Modal.Title>
+        <Modal.Title>How to Play</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p>
@@ -13,8 +13,9 @@ function HowTo() {
           Prediction Game!!
         </p>
         <p>
-          Here&apos;s how to play: as best as you can, predict the 2024 NFL
-          Draft. The entries on this page are roughly ordered according to the{" "}
+          Here&apos;s how to play: as best as you can, predict the first round
+          of the 2024 NFL Draft. The entries on this page are roughly ordered
+          according to the{" "}
           <a
             target="_blank"
             href="https://www.espn.com/nfl/draft/bestavailable/_/position/"
@@ -26,11 +27,12 @@ function HowTo() {
         </p>
         <p>
           Update your submission by moving around the player names until you
-          feel like you are ready. When you feel like your list is in good
-          shape, scroll to the bottom of the page and click on{" "}
-          <strong>Review and Submit</strong>. You will then be shown a
+          feel like you are ready. You are only picking the first round, so no
+          need to order any names after <strong>#32</strong> here. When you feel
+          like your list is in good shape, scroll to the bottom of the page and
+          click on <strong>Review and Submit</strong>. You will then be shown a
           confirmation modal ... scroll down to the bottom of that, enter your
-          name and then finally click <strong>Submit</strong>.
+          name, and then finally click <strong>Submit</strong>.
         </p>
         <p>
           Once the draft starts, here is how the scoring works: When a player is
@@ -38,12 +40,13 @@ function HowTo() {
           <strong>
             <code>0</code>
           </strong>{" "}
-          if you predicted the exact spot where they were drafted.
+          if you predicted the exact spot where they were drafted. (This is
+          ideal)
         </p>
         <p>
-          If the player is drafted in a position that is not what you predicted,
-          you are penalized the square of the difference between where you
-          thought they would go and where they actually went.
+          If the player is drafted in a position that is not what you predicted
+          (less than ideal), you are penalized the square of the difference
+          between where you thought they would go and where they actually went.
         </p>
         <p>
           For example: if you predict that{" "}
@@ -119,11 +122,14 @@ function HowTo() {
         </p>
         <p>
           As such, you are very much incentivized to draft players you think
-          will go in the first round.
+          will go in the first round. (But let us not forget, fortune favors the
+          brave, and you will have to do at least <i>something</i> to separate
+          your entry from the pack!)
         </p>
         <p>
-          But, let&apos;s not forget -- fortune favors the brave. There is only
-          one winner at the end!!
+          Also, just to reiterate, this game concludes at the end of the first
+          round. After the 32nd pick is made on Thursday evening, the final
+          scoring penalty pass will occur, and a winner will be crowned!
         </p>
       </Modal.Body>
     </>
