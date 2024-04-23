@@ -17,6 +17,12 @@ const picks = [
   // { rank: 5, name: "Drake Maye", college: "North Carolina", position: "QB" },
   // { rank: 6, name: "Rome Odunze", college: "Washington", position: "WR" },
   // { rank: 7, name: "Brock Bowers", college: "Georgia", position: "TE" },
+  // { rank: 8, name: "Dallas Turner", college: "Alabama", position: "EDGE" },
+  // { rank: 9, name: "Joe Alt", college: "Notre Dame", position: "OT" },
+  // { rank: 10, name: "Troy Fautanu", college: "Washington", position: "OT" },
+  // { rank: 11, name: "JC Latham", college: "Alabama", position: "OT" },
+  // { rank: 12, name: "Laiatu Latu", college: "UCLA", position: "EDGE" },
+  // { rank: 13, name: "Quinyon Mitchell", college: "Toledo", position: "CB" },
 ]
 
 async function main() {
