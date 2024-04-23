@@ -131,7 +131,7 @@ export const Container = () => {
           onClick={handleSubmit}
           disabled={!name || submitting}
         >
-          Submitting {submitting && "..."}
+          {!submitting ? <>Submit</> : <>Submitting...</>}
         </Button>
       </Modal.Footer>
     </Modal>
