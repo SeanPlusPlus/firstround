@@ -81,11 +81,12 @@ function HowTo() {
         </p>
         <p>
           If you predict that a player will be drafted in the first round and
-          they are not drafted in the first round, you will get a{" "}
+          they are not drafted in the first round, you will be scored for that
+          player as if they were drafted{" "}
           <strong>
-            <code>1024</code>
+            <code>50th</code>
           </strong>{" "}
-          penalty for that player.
+          overall.
         </p>
         <p>
           As such, there are two columns to keep an eye on during the draft: the{" "}

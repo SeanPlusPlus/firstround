@@ -2,23 +2,29 @@ import _orderBy from "lodash/orderBy"
 import { sql } from "@vercel/postgres"
 
 const TOTAL = 32
-const PENALTY = 1024
+const PENALTY = 50
 
 export default async function handler(req, res) {
   try {
     const query = await sql`SELECT * FROM Picks;`
-    const draft = query.rows.map((row) => row.data)
+    const draft = query.rows.map((row) => row)
     const entries = await sql`SELECT * FROM Entries;`
+
+    if (!entries) {
+      res.status(200).json({ entries: [] })
+      return
+    }
+
     const results = entries.rows.map((r) => {
       const scores = r.picks.map((p, idx) => {
-        const i = draft.findIndex((d) => d.name === p.name)
-        const drafted = i === -1 ? null : i + 1
-        const score = getScore(i, idx, draft.length)
-        i === -1 ? null : Math.pow(Math.abs(i - idx), 2)
+        const drafted = draft.find((d) => d.data.name === p.name)
+        const predicted = idx + 1
+        const selected = drafted ? drafted.selected : null
+        const score = selected ? getScore(selected, predicted) : null
         return {
           ...p,
-          drafted,
           score,
+          selected,
         }
       })
 
@@ -43,14 +49,8 @@ export default async function handler(req, res) {
   }
 }
 
-const getScore = (i, idx, totalPicksCompleted) => {
-  if (totalPicksCompleted === TOTAL) {
-    // draft is complete and this player was not picked in the 1st round
-    if (i === -1) {
-      return PENALTY
-    }
-  }
-
-  const score = i === -1 ? null : Math.pow(Math.abs(i - idx), 2)
+const getScore = (selected, predicted) => {
+  const abs = Math.abs(selected - predicted)
+  const score = Math.pow(abs, 2)
   return score
 }

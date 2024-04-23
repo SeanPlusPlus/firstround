@@ -77,7 +77,7 @@ export default function Entries() {
               <th>Name</th>
               <th className="college-header">College</th>
               <th className="position-header">Position</th>
-              <th>Drafted</th>
+              <th>Selected</th>
               <th>Score</th>
             </tr>
           </thead>
@@ -89,7 +89,7 @@ export default function Entries() {
                   <td>{entry.name}</td>
                   <td className="college">{entry.college}</td>
                   <td className="position">{entry.position}</td>
-                  <td>{entry.drafted}</td>
+                  <td>{entry.selected}</td>
                   <td>
                     <strong>
                       <code>{entry.score}</code>
