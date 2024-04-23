@@ -11,6 +11,7 @@ import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
 import dayjs from "dayjs"
 import LoadingSpinner from "./LoadingSpinner"
+import Header from "./header"
 
 const TOTAL = 32
 
@@ -133,12 +134,7 @@ export default function Entries() {
 
   return (
     <>
-      <Head>
-        <title>First Round</title>
-        <meta name="description" content="First Round" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <Header />
       <Navigation entries={true} />
       <Container>
         {items.length > 0 ? (
