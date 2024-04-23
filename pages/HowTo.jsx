@@ -1,5 +1,5 @@
-import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
+import Alert from "react-bootstrap/Alert"
 
 function HowTo() {
   return (
@@ -33,6 +33,11 @@ function HowTo() {
           click on <strong>Review and Submit</strong>. You will then be shown a
           confirmation modal ... scroll down to the bottom of that, enter your
           name, and then finally click <strong>Submit</strong>.
+        </p>
+        <p>
+          <Alert variant={"primary"}>
+            Get your picks in by Thursday 4:45 PM Pacific
+          </Alert>
         </p>
         <p>
           Once the draft starts, here is how the scoring works: When a player is
