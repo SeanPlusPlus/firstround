@@ -131,6 +131,12 @@ function HowTo() {
           round. After the 32nd pick is made on Thursday evening, the final
           scoring penalty pass will occur, and a winner will be crowned!
         </p>
+        <p>
+          Oh! One last thing! Once the draft starts Thursday evening you can
+          simply leave your browser open on the{" "}
+          <a href="/entries">Entries Dashboard</a> and the scores + the picks
+          will be updated in real-time!
+        </p>
       </Modal.Body>
     </>
   )

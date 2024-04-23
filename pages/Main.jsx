@@ -50,7 +50,7 @@ export default function Main() {
           <span role="img" aria-label="hand waving">
             👋
           </span>{" "}
-          Make sure to Review{" "}
+          Make sure to review the{" "}
           <Alert.Link onClick={handleShow}>How to Play</Alert.Link> before
           getting started with your entry
         </Alert>
