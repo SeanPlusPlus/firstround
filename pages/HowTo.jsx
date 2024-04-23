@@ -142,6 +142,13 @@ function HowTo() {
           scores + the picks will be updated in real-time!
         </p>
         <p>
+          <Alert variant={"primary"}>
+            Once you submit your entry, you can not edit it. If you wanna change
+            your picks, just create a new entry, ping me and I will delete your
+            original entry.
+          </Alert>
+        </p>
+        <p>
           If you&apos;ve made it this far you might be wondering why the heck
           would I spend so much time building a game like this. Honestly ...
           That&apos;s a great question, and sometimes, I&apos;m not even sure of
