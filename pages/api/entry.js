@@ -1,9 +1,15 @@
 import { sql } from "@vercel/postgres"
 import players2024 from "./players"
+import isClosed from "../../utils/closed"
 
 const YEAR = "2024"
 
 export default async function handler(req, res) {
+  if (isClosed) {
+    res.status(405).end("Draft closed")
+    return
+  }
+
   if (req.method === "POST") {
     const data = req.body
     const { idxs, name } = data
