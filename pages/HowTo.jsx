@@ -89,7 +89,23 @@ function HowTo() {
           <strong>
             <code>64th</code>
           </strong>{" "}
-          overall -- the last pick in the second round.
+          overall -- the last pick in the second round (very much not ideal).
+        </p>
+        <p>
+          For example: let&apos;s say you predicted that <strong>Bo Nix</strong>{" "}
+          would be selected tenth overall in the draft. But, at the end of the
+          first round he was not drafted at all! During the draft, he would be{" "}
+          <i>pending</i> and there would be no positive score next to his name
+          for your entry, but at the end of the draft, he would be scored{" "}
+          <strong>
+            <code>2916</code>
+          </strong>
+          .
+        </p>
+        <p>
+          <strong>
+            <code>(64 - 10) ^ 2 = 2916</code>
+          </strong>
         </p>
         <p>
           Thus, there are two columns on the main scoreboard to keep an eye on
@@ -105,22 +121,6 @@ function HowTo() {
           need to be given their penalized score.
         </p>
         <p>
-          For example: let&apos;s say you predicted that <strong>Bo Nix</strong>{" "}
-          would be selected tenth overall in the draft. But, at the end of the
-          first round he was not drafted at all! During the draft, he would be{" "}
-          <i>pending</i> and there would be no positive score next to his name,
-          but at the end of the draft, he would be scored{" "}
-          <strong>
-            <code>2916</code>
-          </strong>
-          .
-        </p>
-        <p>
-          <strong>
-            <code>(64 - 10) ^ 2 = 2916</code>
-          </strong>
-        </p>
-        <p>
           As such, you are very much incentivized to draft players you think
           will go in the first round. (But let us not forget, fortune favors the
           brave, and you will have to do at least <i>something</i> to separate
@@ -128,14 +128,39 @@ function HowTo() {
         </p>
         <p>
           Also, just to reiterate, this game concludes at the end of the first
-          round. After the 32nd pick is made on Thursday evening, the final
+          round. After the 32nd pick is made on Thursday night, the final
           scoring penalty pass will occur, and a winner will be crowned!
         </p>
         <p>
-          Oh! One last thing! Once the draft starts Thursday evening you can
-          simply leave your browser open on the{" "}
-          <a href="/entries">Entries Dashboard</a> and the scores + the picks
-          will be updated in real-time!
+          Once the draft starts Thursday evening you can simply leave your
+          browser open on the <a href="/entries">Entries Dashboard</a> and the
+          scores + the picks will be updated in real-time!
+        </p>
+        <p>
+          If you&apos;ve made it this far you might be wondering why the heck
+          would I spend so much time building a game like this. Honestly ...
+          That&apos;s a great question, and sometimes, I&apos;m not even sure of
+          the answer myself ...
+        </p>
+        <p>
+          It seems like every year I rebuild this thing just to get my hands on
+          a new tech stack and to mess around with scoring variations. This
+          year, I&apos;ve been wanting to learn how to integrate Postgres on
+          Vercel, so I figured why not rebuild the draft game there and update
+          the scoring algorithm a bit from year&apos;s past. If you want to
+          check out the implementation, head on over{" "}
+          <a
+            href="https://github.com/SeanPlusPlus/firstround"
+            target="_blank"
+            rel="noreferrer"
+          >
+            to the GitHub
+          </a>{" "}
+          repo, let me know what you think, and hook it up with a{" "}
+          <span role="img" aria-label="hand waving">
+            ⭐
+          </span>{" "}
+          while you&apos;re there!
         </p>
       </Modal.Body>
     </>
