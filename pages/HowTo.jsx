@@ -14,7 +14,7 @@ function HowTo() {
         </p>
         <p>
           Here&apos;s how to play: as best as you can, predict the 2024 NFL
-          Draft. The entries on this page are ordered according to the{" "}
+          Draft. The entries on this page are roughly ordered according to the{" "}
           <a
             target="_blank"
             href="https://www.espn.com/nfl/draft/bestavailable/_/position/"
@@ -29,8 +29,8 @@ function HowTo() {
           feel like you are ready. When you feel like your list is in good
           shape, scroll to the bottom of the page and click on{" "}
           <strong>Review and Submit</strong>. You will then be shown a
-          confirmation modal; scroll down to the bottom of that, enter your name
-          and then finally click <strong>Submit</strong>.
+          confirmation modal ... scroll down to the bottom of that, enter your
+          name and then finally click <strong>Submit</strong>.
         </p>
         <p>
           Once the draft starts, here is how the scoring works: When a player is

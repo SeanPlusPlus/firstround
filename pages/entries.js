@@ -139,7 +139,7 @@ export default function Entries() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navigation />
+      <Navigation entries={true} />
       <Container>
         {items.length > 0 ? (
           <>

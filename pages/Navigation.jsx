@@ -8,7 +8,8 @@ import Modal from "react-bootstrap/Modal"
 
 import HowTo from "./HowTo"
 
-function Navigation() {
+function Navigation(props) {
+  const entries = props?.entries
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -31,7 +32,9 @@ function Navigation() {
         <Container>
           <Navbar.Brand href="/">First Round</Navbar.Brand>
           <Nav>
-            <Nav.Link href="/entries">Entries</Nav.Link>
+            <Nav.Link href="/entries" active={entries}>
+              Entries
+            </Nav.Link>
           </Nav>
 
           <Navbar.Collapse className="justify-content-end">

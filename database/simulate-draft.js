@@ -70,7 +70,7 @@ function main() {
   }
 
   const insertObjects = async () => {
-    const promises = players.slice(0, 9).map((pick, i) => insert(pick, i + 1))
+    const promises = players.slice(0, 32).map((pick, i) => insert(pick, i + 1))
     const result = await Promise.all(promises)
     console.log(result)
   }
