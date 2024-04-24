@@ -152,18 +152,47 @@ export default function Entries() {
                     </tr>
                   </thead>
                   <tbody>
-                    {items.map((i, index) => (
-                      <tr key={index} onClick={() => displayEntry(index)}>
-                        <td>{index + 1}</td>
-                        <td>{i.name}</td>
-                        {draft.length < TOTAL && <td>{i.pending}</td>}
-                        <td>
-                          <strong>
-                            <code>{i.score}</code>
-                          </strong>
-                        </td>
-                      </tr>
-                    ))}
+                    {items
+                      .filter((i) => i.name !== "ChatGPT 🤖")
+                      .map((i, index) => (
+                        <tr key={index} onClick={() => displayEntry(index)}>
+                          <td>{index + 1}</td>
+                          <td>{i.name}</td>
+                          {draft.length < TOTAL && <td>{i.pending}</td>}
+                          <td>
+                            <strong>
+                              <code>{i.score}</code>
+                            </strong>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </Table>
+                <h2>Non-human Entries</h2>
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      {draft.length < TOTAL && <th>Pending</th>}
+                      <th>Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {items
+                      .filter((i) => i.name === "ChatGPT 🤖")
+                      .map((i, index) => (
+                        <tr key={index} onClick={() => displayEntry(index)}>
+                          <td>{index + 1}</td>
+                          <td>{i.name}</td>
+                          {draft.length < TOTAL && <td>{i.pending}</td>}
+                          <td>
+                            <strong>
+                              <code>{i.score}</code>
+                            </strong>
+                          </td>
+                        </tr>
+                      ))}
                   </tbody>
                 </Table>
               </div>
