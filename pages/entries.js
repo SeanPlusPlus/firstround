@@ -14,7 +14,7 @@ import Header from "./header"
 
 const TOTAL = 32
 
-const nonHuman = ["ChatGPT 🤖", "By Weight 💪"]
+const nonHuman = ["ChatGPT 🤖", "By Weight 💪", "Random 🙃"]
 
 export default function Entries() {
   const [items, setItems] = useState([])
