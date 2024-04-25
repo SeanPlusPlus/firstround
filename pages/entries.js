@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import Head from "next/head"
 import axios from "axios"
 import Navigation from "./Navigation"
 
@@ -14,6 +13,8 @@ import LoadingSpinner from "./LoadingSpinner"
 import Header from "./header"
 
 const TOTAL = 32
+
+const nonHuman = ["ChatGPT 🤖", "By Weight 💪"]
 
 export default function Entries() {
   const [items, setItems] = useState([])
@@ -153,7 +154,7 @@ export default function Entries() {
                   </thead>
                   <tbody>
                     {items
-                      .filter((i) => i.name !== "ChatGPT 🤖")
+                      .filter((i) => !nonHuman.includes(i.name))
                       .map((i, index) => (
                         <tr key={index} onClick={() => displayEntry(index)}>
                           <td>{index + 1}</td>
@@ -180,7 +181,7 @@ export default function Entries() {
                   </thead>
                   <tbody>
                     {items
-                      .filter((i) => i.name === "ChatGPT 🤖")
+                      .filter((i) => nonHuman.includes(i.name))
                       .map((i, index) => (
                         <tr key={index} onClick={() => displayEntry(index)}>
                           <td>{index + 1}</td>
