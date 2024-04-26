@@ -26,7 +26,13 @@ export default function Main() {
     return (
       <main>
         <h1>Closed</h1>
-        <p>The draft has started and no more entries are accpeted</p>
+        <Alert variant={"warning"}>
+          The draft has started and no more entries are accpeted.
+        </Alert>
+        <p>
+          You can follow along in realtime on the{" "}
+          <a href="/entries">entries page</a>.
+        </p>
       </main>
     )
   }

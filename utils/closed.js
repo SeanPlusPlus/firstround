@@ -1,3 +1,3 @@
-const isClosed = false
+const isClosed = true
 
 export default isClosed
