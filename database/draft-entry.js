@@ -6,6 +6,14 @@ const YEAR = "2024"
 
 const picks = [
   { rank: 1, name: "Caleb Williams", college: "USC", position: "QB" },
+  { rank: 2, name: "Jayden Daniels", college: "LSU", position: "QB" },
+  { rank: 5, name: "Drake Maye", college: "North Carolina", position: "QB" },
+  {
+    rank: 3,
+    name: "Marvin Harrison Jr.",
+    college: "Ohio State",
+    position: "WR",
+  },
 ]
 
 async function main() {
