@@ -43,7 +43,9 @@ export default async function handler(req, res) {
     })
     res
       .status(200)
-      .json({ entries: _orderBy(results, ["score", "name"], ["asc", "asc"]) })
+      .json({
+        entries: _orderBy(results, ["pending", "score"], ["asc", "asc"]),
+      })
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" })
   }
